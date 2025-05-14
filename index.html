@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindHaven – Offline Wellness Journal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button class="toggle-theme" onclick="toggleTheme()">Toggle Theme</button>
+  <header>
+    <h1>MindHaven</h1>
+    <p class="subtitle">Your private wellness space — offline, secure, and just for you.</p>
+  </header>
+
+  <div class="container">
+    <div class="mood-select">
+      <label for="mood">Select Mood: </label>
+      <select id="mood">
+        <option value="">--Choose--</option>
+        <option value="happy">Happy 😊</option>
+        <option value="neutral">Neutral 😐</option>
+        <option value="sad">Sad 😢</option>
+        <option value="angry">Angry 😠</option>
+        <option value="excited">Excited 🤩</option>
+      </select>
+    </div>
+    <div id="quoteBox" style="margin: 1rem 0; padding: 1rem; border-radius: 12px; background: #fff; color: #444; font-style: italic; box-shadow: 0 2px 6px rgba(0,0,0,0.1); opacity: 0; transition: opacity 0.6s ease;"></div>
+
+    <textarea id="journalEntry" placeholder="Write a short note about today..."></textarea>
+    <button class="btn" onclick="saveEntry()">Save Entry</button>
+
+    <div class="calendar" id="calendar"></div>
+
+    <button class="btn" onclick="exportEntries()">Export Entries</button>
+  </div>
+
+  <div id="feedbackPopup" class="popup">
+    <p>Your entry has been saved successfully!</p>
+    <button onclick="closePopup()">Close</button>
+  </div>
+
+  <footer class="footer">
+    &copy; 2025 MindHaven. All rights reserved.
+  </footer>
+  
+  
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+:root {
+    --bg: #f4f4f9;
+    --text: #333;
+    --primary: #4e9b8f;
+    --accent: #78c2ad;
+    --dark-bg: #12121c;
+    --dark-text: #f4f4f9;
+    --happy: #fff3cd;
+    --neutral: #e2e3e5;
+    --sad: #d1ecf1;
+    --angry: #f8d7da;
+    --excited: #d4edda;
+    --highlight: #ffdf00;
+    --button-hover: #66b9b4;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.3s, color 0.3s;
+    overflow-x: hidden;
+  }
+
+  header {
+    text-align: center;
+    padding: 3rem 1rem 1rem;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  h1 {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p.subtitle {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    font-style: italic;
+  }
+
+  .container {
+    padding: 2rem 1rem;
+    max-width: 700px;
+    margin: auto;
+  }
+
+  .mood-select {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  select {
+    padding: 0.6rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+
+  textarea {
+    width: 100%;
+    height: 120px;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    resize: vertical;
+    box-sizing: border-box;
+    background: white;
+  }
+
+  .btn {
+    background-color: var(--primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background 0.2s;
+  }
+
+  .btn:hover {
+    background-color: var(--accent);
+  }
+
+  .calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  .day {
+    width: 100%;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    border-radius: 16px;
+    cursor: pointer;
+    background: #e0e0e0;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+    position: relative;
+  }
+
+  .day:hover {
+    transform: scale(1.07);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .day.happy { background: var(--happy); }
+  .day.neutral { background: var(--neutral); }
+  .day.sad { background: var(--sad); }
+  .day.angry { background: var(--angry); }
+  .day.excited { background: var(--excited); }
+
+  .day .delete-btn {
+    position: absolute;
+    top: 4px;
+    right: 6px;
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dark {
+    background: var(--dark-bg);
+    color: var(--dark-text);
+  }
+
+  .dark .day {
+    background: #1e1e2e;
+    color: var(--dark-text);
+  }
+
+  .toggle-theme {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: var(--primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .toggle-theme:hover {
+    background: var(--accent);
+  }
+
+  .popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 1.5rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text);
+  }
+
+  .popup.active {
+    display: block;
+  }
+
+  .popup button {
+    background: var(--primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+
+  .popup button:hover {
+    background: var(--accent);
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 10px 16px;
+    font-size: 12px;
+    color: #777;
+    background: transparent;
+    z-index: 1000;
+    pointer-events: none; /* Ensures it doesn't interfere with buttons */
+  }
+  
+  /* Optional: support for dark theme */
+  body.dark-mode .footer {
+    color: #bbb;
+  }
+  
